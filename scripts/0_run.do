@@ -7,7 +7,23 @@ Short Description:  This do-file ....
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 ////////////////////////////////////////////////////////////////////////////////
-* 1. Set options (uncomment if needed)
+* 1. Set absolute and relative paths 
+// Absolute path (change where your project is located)
+global absolute_path "C:\Users\HP\Documents\GitHub\MyWorkflow4DataAnalysis"
+
+// Relative paths 
+global data_path 		"$absolute_path\data"
+global raw_data_path 	"$data_path\raw_data"
+global temp_path 		"$absolute_path\temp"
+
+global script_path 		"$absolute_path\scripts"
+global output_path 		"$absolute_path\output" 
+global log_path 		"$absolute_path\logs"
+
+global stata_packages_path "$absolute_path\stata_packages"
+
+cd "$absolute_path"
+* 2. Set options (uncomment if needed)
 
 // Download raw data (0 for no; 1 for yes)
 global downloads 1
@@ -31,10 +47,14 @@ cap adopath - PLUS
 cap adopath - SITE
 cap adopath - OLDPLACE 
 adopath + "stata_packages"
-net set ado "\stata_packages"
+net set ado "stata_packages"
 
 // Download user written packages 
 if $downloads == 1{
 	// scc install something , replace 
-	ssc install blindschemes, replace 
+	 ssc install blindschemes, replace
+	// ssc install coefplot, replace
 }
+
+
+
