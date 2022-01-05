@@ -31,7 +31,7 @@ cap adopath - PLUS
 cap adopath - SITE
 cap adopath - OLDPLACE 
 adopath + "stata_packages"
-net set ado "stata_packages"
+net set ado "\stata_packages"
 
 // Download user written packages 
 if $downloads == 1{
