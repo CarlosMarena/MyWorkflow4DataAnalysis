@@ -10,7 +10,7 @@ Short Description:  This do-file ....
 * 1. Set options (uncomment if needed)
 
 // Download raw data (0 for no; 1 for yes)
-global downloads 0
+global downloads 1
 
 // Build dataset used in analysis (0 for no; 1 for yes)
 // global build_data 0
@@ -36,5 +36,5 @@ net set ado "stata_packages"
 // Download user written packages 
 if $downloads == 1{
 	// scc install something , replace 
-	// ssc install blindschemes, replace 
+	ssc install blindschemes, replace 
 }
